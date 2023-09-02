@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, AfterInsert, AfterUpdate, AfterRemove } from 'typeorm';
 
 @Entity()
 export class User {
@@ -12,4 +12,22 @@ export class User {
     @Column()
     password: string;
 
+    @AfterInsert()
+    logInsert() {
+        console.log(`Inserted User with Id ${this.id}`);
+    }
+
+    @AfterUpdate()
+    logUpdate() {
+        console.log(`Updated User with Id ${this.id}`);
+    }
+
+    @AfterRemove()
+    logRemoved() {
+        console.log(`Updated User with Id ${this.id}`);
+    }
 }
+
+/*
+*hooks will not be executed if we directly call save method without creating an instance of class
+*/
