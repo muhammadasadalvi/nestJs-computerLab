@@ -28,3 +28,13 @@ Content-Type: application/json
 {
     "email":"se.muhammadasadattari@gmail.com"
 }
+
+### signup user
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+    "email":"asad@ideatolife.me",
+    "password":"mypass"
+}
